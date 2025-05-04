@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Редагувати матеріал</title>
+</head>
+<body>
+<h1>Редагувати матеріал</h1>
+
+<form th:action="@{'/materials/edit/' + ${material.id}}" th:object="${material}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Назва:</label>
+    <input type="text" th:field="*{name}" /><br><br>
+
+    <label>Ціна:</label>
+    <input type="number" th:field="*{price}" /><br><br>
+
+    <label>Тип:</label>
+    <input type="text" th:field="*{type}" /><br><br>
+
+    <button type="submit">Зберегти</button>
+</form>
+<br>
+<a href="/materials">Назад до списку</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Редагувати обладнання</title>
+</head>
+<body>
+<h1>Редагувати обладнання</h1>
+<form th:action="@{'/equipment/edit/' + ${equipment.id}}" th:object="${equipment}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Назва:</label>
+    <input type="text" th:field="*{name}" /><br><br>
+    <label>Ціна:</label>
+    <input type="number" th:field="*{price}" /><br><br>
+    <label>Батьківське обладнання:</label>
+    <input type="number" th:field="*{parentId}" /><br><br>
+    <button type="submit">Зберегти</button>
+</form>
+<br>
+<a href="/equipment">Назад до списку</a>
+</body>
+</html>

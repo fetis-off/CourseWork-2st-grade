@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Completed Works</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Completed Works</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Maintenance ID</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="work : ${completedWorkList}">
+        <td th:text="${work.id}"></td>
+        <td th:text="${work.executionDate}"></td>
+        <td th:text="${work.executionTime}"></td>
+        <td th:text="${work.maintenanceId}"></td>
+        <td>
+            <a th:href="@{'/completed-works/edit/' + ${work.id}}">Edit</a> |
+            <a th:href="@{'/completed-works/delete/' + ${work.id}}" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/completed-works/create">Create New Completed Work</a>
+</body>
+</html>

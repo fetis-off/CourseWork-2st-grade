@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Needs List</title>
+</head>
+<body>
+<h1>Needs List</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Quantity</th>
+        <th>Material</th>
+        <th>Maintenance</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="need : ${needs}">
+        <td th:text="${need.quantity}"></td>
+        <td th:text="${need.materialId}"></td>
+        <td th:text="${need.maintenanceId}"></td>
+        <td>
+            <a th:href="@{/needs/edit/{id}(id=${need.id})}">Edit</a> |
+            <a th:href="@{/needs/delete/{id}(id=${need.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/needs/create">Create New Need</a>
+</body>
+</html>

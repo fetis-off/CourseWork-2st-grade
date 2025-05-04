@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Обладнання</title>
+</head>
+<body>
+<h1>Обладнання</h1>
+<a href="/equipment/create">Створити нове обладнання</a>
+<hr>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Назва</th>
+        <th>Ціна</th>
+        <th>Батьківське ID</th>
+        <th>Дії</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="equipment : ${equipmentList}">
+        <td th:text="${equipment.id}"></td>
+        <td th:text="${equipment.name}"></td>
+        <td th:text="${equipment.price}"></td>
+        <td th:text="${equipment.parentId}"></td>
+        <td>
+            <a th:href="@{'/equipment/edit/' + ${equipment.id}}">Редагувати</a> |
+            <a th:href="@{'/equipment/delete/' + ${equipment.id}}" onclick="return confirm('Ви впевнені?')">Видалити</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="/about">Про автора</a>
+</body>
+</html>

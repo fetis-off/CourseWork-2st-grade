@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Створити обладнання</title>
+</head>
+<body>
+<h1>Створити обладнання</h1>
+<form th:action="@{/equipment/create}" th:object="${equipment}" method="post">
+    <label>Назва:</label>
+    <input type="text" th:field="*{name}" /><br><br>
+    <label>Ціна:</label>
+    <input type="number" th:field="*{price}" /><br><br>
+    <label>Батьківське обладнання:</label>
+    <input type="number" th:field="*{parentId}" /><br><br>
+    <button type="submit">Створити</button>
+</form>
+<br>
+<a href="/equipment">Назад до списку</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Створити матеріал</title>
+</head>
+<body>
+<h1>Створити матеріал</h1>
+
+<form th:action="@{/materials/create}" th:object="${material}" method="post">
+    <label>Назва:</label>
+    <input type="text" th:field="*{name}" /><br><br>
+
+    <label>Ціна:</label>
+    <input type="number" th:field="*{price}" /><br><br>
+
+    <label>Тип:</label>
+    <input type="text" th:field="*{type}" /><br><br>
+
+    <button type="submit">Створити</button>
+</form>
+<br>
+<a href="/materials">Назад до списку</a>
+</body>
+</html>

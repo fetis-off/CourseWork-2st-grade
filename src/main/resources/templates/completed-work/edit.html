@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Completed Work</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Edit Completed Work</h1>
+
+<form th:action="@{'/completed-works/edit/' + ${completedWork.id}}" th:object="${completedWork}" method="post">
+    <label for="executionDate">Execution Date:</label>
+    <input type="date" id="executionDate" th:field="*{executionDate}" required/>
+
+    <label for="executionTime">Execution Time:</label>
+    <input type="time" id="executionTime" th:field="*{executionTime}" required/>
+
+    <label for="maintenanceId">Maintenance ID:</label>
+    <input type="number" id="maintenanceId" th:field="*{maintenanceId}" required/>
+
+    <button type="submit">Create</button>
+</form>
+<a href="/completed-works">Back to Completed Works List</a>
+</body>
+</html>

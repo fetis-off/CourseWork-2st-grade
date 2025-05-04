@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Матеріали</title>
+</head>
+<body>
+<h1>Матеріали</h1>
+
+<a href="/materials/create">Створити новий матеріал</a>
+<hr>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Назва</th>
+        <th>Ціна</th>
+        <th>Тип</th>
+        <th>Дії</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="material : ${materials}">
+        <td th:text="${material.id}"></td>
+        <td th:text="${material.name}"></td>
+        <td th:text="${material.price}"></td>
+        <td th:text="${material.type}"></td>
+        <td>
+            <a th:href="@{'/materials/edit/' + ${material.id}}">Редагувати</a> |
+            <a th:href="@{'/materials/delete/' + ${material.id}}" onclick="return confirm('Ви впевнені?')">Видалити</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="/about">Про автора</a>
+</body>
+</html>

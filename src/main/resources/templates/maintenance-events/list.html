@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Події обслуговування</title>
+</head>
+<body>
+<h1>Події обслуговування</h1>
+<a href="/maintenance-events/create">Створити нову подію</a>
+<hr>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Назва</th>
+        <th>Опис процедури</th>
+        <th>Дії</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${maintenanceEvents}">
+        <td th:text="${event.id}"></td>
+        <td th:text="${event.name}"></td>
+        <td th:text="${event.procedureDescription}"></td>
+        <td>
+            <a th:href="@{'/maintenance-events/edit/' + ${event.id}}">Редагувати</a> |
+            <a th:href="@{'/maintenance-events/delete/' + ${event.id}}" onclick="return confirm('Ви впевнені?')">Видалити</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="/about">Про автора</a>
+</body>
+</html>

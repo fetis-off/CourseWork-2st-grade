@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Редагувати подію обслуговування</title>
+</head>
+<body>
+<h1>Редагувати подію обслуговування</h1>
+<form th:action="@{'/maintenance-events/edit/' + ${maintenanceEvent.id}}" th:object="${maintenanceEvent}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Назва:</label>
+    <input type="text" th:field="*{name}" /><br><br>
+    <label>Опис процедури:</label>
+    <textarea th:field="*{procedureDescription}"></textarea><br><br>
+    <button type="submit">Зберегти</button>
+</form>
+<br>
+<a href="/maintenance-events">Назад до списку</a>
+</body>
+</html>
